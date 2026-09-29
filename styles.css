@@ -194,7 +194,10 @@ body {
   justify-content: center;
   gap: 22px;
   padding: calc(24px + env(safe-area-inset-top)) 22px calc(16vh + env(safe-area-inset-bottom));
-  background: none;
+  background:
+    linear-gradient(to bottom, #F1F2F4 0, rgba(241,242,244,0) 70px),
+    linear-gradient(to top, #F1F2F4 0, rgba(241,242,244,0.6) 40px, rgba(241,242,244,0) 140px),
+    #F1F2F4 url('assets/scene-mobile.jpg') center / cover no-repeat;
   overflow: hidden;
   text-align: center;
 }
@@ -314,11 +317,7 @@ body {
   .desktop { display: none; }
   .mobile { display: flex; }
 
-  /* Paint the image on the root canvas so it also fills the areas under
-     the phone browser's status bar and toolbar. */
-  html {
-    min-height: 100lvh;
-    background: #EEF0F4 url('assets/scene-mobile.jpg') center / cover no-repeat;
-  }
-  body { background: transparent; }
+  /* Safari paints its status-bar and toolbar strips with the page background
+     colour, so use the marble tone there and fade the image into it. */
+  html, body { background: #F1F2F4; }
 }
