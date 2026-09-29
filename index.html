@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rentalyst — Coming Soon</title>
+  <meta name="description" content="We're putting the finishing touches on our new website. Smart pricing, verified guests and monthly owner reports — launching soon.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Desktop (≥ 760px) -->
+  <div class="desktop">
+    <div class="scene">
+      <img class="d-logo" src="assets/logo_0.png" alt="Rentalyst">
+      <h1 class="d-headline">Your property's<br><span class="accent">next chapter</span><br>is loading.</h1>
+      <p class="d-lede">We're putting the finishing touches on our new website.<br>Smart pricing, verified guests and monthly owner reports — launching soon.</p>
+
+      <div class="d-form-slot">
+        <form class="notify-form d-form">
+          <div class="d-field">
+            <svg class="d-mail" viewBox="0 0 24 24" fill="none" stroke="#0000FF" stroke-width="1.5" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="1.5"></rect><path d="m3.5 6.5 8.5 6.5 8.5-6.5"></path></svg>
+            <input type="email" required placeholder="Enter your email" aria-label="Email address">
+          </div>
+          <button type="submit" class="d-btn">
+            <span>Notify Me</span>
+            <span class="d-btn-circle"><svg viewBox="0 0 24 24" fill="none" stroke="#0000FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"></path><path d="m13 6 6 6-6 6"></path></svg></span>
+          </button>
+        </form>
+        <div class="thanks d-thanks" hidden>
+          <span class="dot"></span>
+          <span>Thanks — we'll let you know the moment we launch.</span>
+        </div>
+      </div>
+
+      <!-- TODO: replace WHATSAPP_NUMBER with the full number, digits only incl. country code (e.g. 9715XXXXXXXX) -->
+      <p class="wa d-wa">Have a question? <a href="https://wa.me/WHATSAPP_NUMBER" target="_blank" rel="noopener">Chat with us on WhatsApp<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"></path><path d="m13 6 6 6-6 6"></path></svg></a></p>
+    </div>
+  </div>
+
+  <!-- Mobile (< 760px) -->
+  <div class="mobile">
+    <img class="m-deco m-tl" src="assets/m-tl.png" alt="">
+    <img class="m-deco m-tr" src="assets/m-tr.png" alt="">
+    <img class="m-deco m-bl" src="assets/m-bl.png" alt="">
+    <img class="m-deco m-br" src="assets/m-br.png" alt="">
+
+    <img class="m-logo" src="assets/logo_0.png" alt="Rentalyst">
+    <h1 class="m-headline">Your property's<br><span class="accent">next chapter</span><br>is loading.</h1>
+    <p class="m-lede">We're putting the finishing touches on our new website. Smart pricing, verified guests and monthly owner reports — launching soon.</p>
+
+    <form class="notify-form m-form">
+      <div class="m-field">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4a5170" stroke-width="1.5" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="1.5"></rect><path d="m3.5 6.5 8.5 6.5 8.5-6.5"></path></svg>
+        <input type="email" required placeholder="Enter your email" aria-label="Email address">
+      </div>
+      <button type="submit" class="m-btn">
+        <span>Notify Me</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"></path><path d="m13 6 6 6-6 6"></path></svg>
+      </button>
+    </form>
+    <div class="thanks m-thanks" hidden>
+      <span class="dot"></span>
+      <span>Thanks — we'll let you know the moment we launch.</span>
+    </div>
+
+    <p class="wa m-wa">Have a question? <a href="https://wa.me/WHATSAPP_NUMBER" target="_blank" rel="noopener">Chat with us on WhatsApp<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15"></path><path d="m13 6 6 6-6 6"></path></svg></a></p>
+  </div>
+
+  <script>
+    // Both layouts share one "submitted" state, as in the design.
+    document.querySelectorAll('.notify-form').forEach(function (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var email = form.querySelector('input').value.trim();
+        if (!email) return;
+        // TODO: send `email` to your mailing list / backend here.
+        document.querySelectorAll('.notify-form').forEach(function (f) { f.hidden = true; });
+        document.querySelectorAll('.thanks').forEach(function (t) { t.hidden = false; });
+      });
+    });
+  </script>
+</body>
+</html>
