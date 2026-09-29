@@ -193,8 +193,8 @@ body {
   align-items: center;
   justify-content: center;
   gap: 22px;
-  padding: 24px 22px 16vh;
-  background: #FAFAFB url('assets/scene-mobile.jpg') center / cover no-repeat;
+  padding: calc(24px + env(safe-area-inset-top)) 22px calc(16vh + env(safe-area-inset-bottom));
+  background: none;
   overflow: hidden;
   text-align: center;
 }
@@ -313,4 +313,12 @@ body {
 @media (max-width: 759px) {
   .desktop { display: none; }
   .mobile { display: flex; }
+
+  /* Paint the image on the root canvas so it also fills the areas under
+     the phone browser's status bar and toolbar. */
+  html {
+    min-height: 100lvh;
+    background: #EEF0F4 url('assets/scene-mobile.jpg') center / cover no-repeat;
+  }
+  body { background: transparent; }
 }
