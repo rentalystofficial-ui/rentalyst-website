@@ -193,21 +193,11 @@ body {
   align-items: center;
   justify-content: center;
   gap: 22px;
-  padding: 32px 22px;
-  background: #FAFAFB;
+  padding: 24px 22px 16vh;
+  background: #FAFAFB url('assets/scene-mobile.jpg') center / cover no-repeat;
   overflow: hidden;
   text-align: center;
 }
-
-.m-deco {
-  position: absolute;
-  height: auto;
-  pointer-events: none;
-}
-.m-tl { left: 0; top: 0; width: 30vw; }
-.m-tr { right: 0; top: 0; width: 40vw; }
-.m-bl { left: 0; bottom: 0; width: 62vw; }
-.m-br { right: 0; bottom: 0; width: 38vw; }
 
 .m-logo {
   position: relative;
@@ -309,9 +299,16 @@ body {
 }
 .m-thanks .dot { width: 10px; height: 10px; }
 
-.m-wa { font-size: 15px; }
+.m-wa {
+  font-size: 14px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
 .m-wa a { margin-left: 4px; gap: 6px; padding-bottom: 2px; white-space: nowrap; }
-.m-wa svg { width: 15px; height: 15px; }
+.m-wa svg { width: 14px; height: 14px; }
 
 @media (max-width: 759px) {
   .desktop { display: none; }
